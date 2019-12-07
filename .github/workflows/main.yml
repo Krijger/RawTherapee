@@ -42,13 +42,7 @@ jobs:
         make --jobs 8
         make install
         sudo make macosx_bundle
-        set -x
-        sleep 15
-        pwd
-        ls
-        echo ${GITHUB_WORKSPACE}
-        ls ${GITHUB_WORKSPACE}
-        ARTIFACT=$(ls ${GITHUB_WORKSPACE}/build/*.dmg)
+        ARTIFACT=$(ls ${GITHUB_WORKSPACE}/build/RawTherapee*.zip)
         echo "===== Writing ${ARTIFACT} to the ARTIFACT environment variable for use in upload-artifact step ====="
         echo "::set-env name=ARTIFACT::${ARTIFACT}"
     - uses: actions/upload-artifact@v1
