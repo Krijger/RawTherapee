@@ -43,6 +43,7 @@ jobs:
         make install
         sudo make macosx_bundle
         set -x
+        sleep 15
         pwd
         ls
         echo ${GITHUB_WORKSPACE}
