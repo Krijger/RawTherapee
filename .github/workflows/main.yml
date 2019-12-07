@@ -42,6 +42,7 @@ jobs:
         make --jobs 8
         make install
         sudo make macosx_bundle
+        set -x
         ARTIFACT=$(ls | grep .dmg)
         echo "===== Writing ${ARTIFACT} to the ARTIFACT environment variable for use in upload-artifact step ====="
         echo "::set-env name=ARTIFACT::${ARTIFACT}"
