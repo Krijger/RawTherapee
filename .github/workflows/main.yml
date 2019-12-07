@@ -43,7 +43,11 @@ jobs:
         make install
         sudo make macosx_bundle
         set -x
-        ARTIFACT=$(ls | grep .dmg)
+        pwd
+        ls
+        echo ${GITHUB_WORKSPACE}
+        ls ${GITHUB_WORKSPACE}
+        ARTIFACT=$(ls ${GITHUB_WORKSPACE}/build/*.dmg)
         echo "===== Writing ${ARTIFACT} to the ARTIFACT environment variable for use in upload-artifact step ====="
         echo "::set-env name=ARTIFACT::${ARTIFACT}"
     - uses: actions/upload-artifact@v1
