@@ -10,4 +10,4 @@ jobs:
 
     steps:
     - name: find / -name 'libiconv.2.dylib'
-      run: find / -name 'libiconv.2.dylib'
+      run: sudo find /usr -name 'libiconv.2.dylib'
