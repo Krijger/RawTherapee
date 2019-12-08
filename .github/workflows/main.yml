@@ -43,9 +43,10 @@ jobs:
         make install
         sudo make macosx_bundle
         ARTIFACT=$(ls | grep RawTherapee*.zip)
+        echo "=== artifact: ${ARTIFACT}"
         echo "::set-env name=ARTIFACT_PATH::${GITHUB_WORKSPACE}/build/${ARTIFACT}"
         echo "::set-env name=ARTIFACT_FILE::${ARTIFACT}"
     - uses: actions/upload-artifact@v1
       with:
         name: ${{env.ARTIFACT_FILE}}
-        path: build/${{env.ARTIFACT_PATH}}
+        path: ${{env.ARTIFACT_PATH}}
